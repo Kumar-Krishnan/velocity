@@ -27,12 +27,16 @@ router.post('/', (req,res)=>{
     })
 })
 
-// router.delete('/:userId', (req,res) =>{
-//   UserModel.findByIdAndRemove(req.params.userId)
-//   .then(()=>{
-//     res.send("We did it!")
-//   })
-// })
+router.delete('/:quoteId', (req,res) =>{
+  UserModel.findById(req.params.userId)
+  .then((user)=>{
+    user.quotes.id(req.params.quoteId).remove()
+    user.save()
+  })
+  .then(()=>{
+      res.send("Quote deleted")
+  })
+})
 
 // router.put('/:userId',(req,res)=>{
 //   return UserModel.findByIdAndUpdate(req.params.userId, req.body, {new: true})
