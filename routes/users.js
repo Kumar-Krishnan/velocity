@@ -4,9 +4,21 @@ var router = express.Router();
 const UserModel = require('../db/models/User')
 
 
-/* GET users listing. */
+/* GET user listing. */
+
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  UserModel.find()
+  .then((users)=>{
+    res.send(users)
+  })
+});
+
+
+router.get('/:userId', function(req, res, next) {
+  UserModel.findById(req.params.userId)
+  .then((user)=>{
+    res.send(user.name)
+  })
 });
 
 module.exports = router;
