@@ -5,6 +5,7 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const usersRouter = require('./routes/usersController')
 const quotesRouter = require('./routes/quotesController')
+const allQuotesRouter = require('./routes/allQuotesController')
 mongoose.connect(process.env.MONGODB_URI) 
 
 const connection = mongoose.connection
@@ -31,5 +32,6 @@ app.get('/', (req, res) => {
 
 app.use('/database/users', usersRouter)
 app.use('/database/users/:userId/quotes', quotesRouter)
+app.use('/database/allQuotes', allQuotesRouter)
 
 module.exports = app

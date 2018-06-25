@@ -5,14 +5,14 @@ const StyledHomeDiv = styled.div`
     background-color:red;
 `
 
-class Home extends Component {
+class Welcome extends Component {
     render() {
         return (
             <StyledHomeDiv>
-                How do you do
+               
             </StyledHomeDiv>
         );
     }
 }
 
-export default Home;
+export default Welcome;
