@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const logger = require('morgan')
 const mongoose = require('mongoose')
+const usersRouter = require('./routes/users')
 mongoose.connect(process.env.MONGODB_URI) 
 
 const connection = mongoose.connection
@@ -27,6 +28,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')
 })
 
-// app.use('/api/users', usersRouter)
+app.use('/database/users', usersRouter)
 
 module.exports = app
