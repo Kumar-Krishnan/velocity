@@ -17,8 +17,16 @@ router.get('/', function(req, res, next) {
 router.get('/:userId', function(req, res, next) {
   UserModel.findById(req.params.userId)
   .then((user)=>{
-    res.send(user.name)
+    res.send(user)
   })
 });
+
+router.post('/', (req,res)=>{
+  const newUser = new UserModel(req.body)
+  newUser.save()
+  .then((createdUser)=>{
+    res.send(createdUser)
+  })
+})
 
 module.exports = router;
