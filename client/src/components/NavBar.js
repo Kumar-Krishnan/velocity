@@ -5,6 +5,7 @@ const GridNavBar = styled.div`
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw;
     justify-content: space-evenly;
+    margin-top: 10px;
     div{
         border: 2px solid black;
     }
