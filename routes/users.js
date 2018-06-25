@@ -29,4 +29,10 @@ router.post('/', (req,res)=>{
   })
 })
 
+router.delete('/:userId', (req,res) =>{
+  UserModel.findByIdAndRemove(req.params.userId)
+  .then(()=>{
+    res.send("We did it!")
+  })
+})
 module.exports = router;
