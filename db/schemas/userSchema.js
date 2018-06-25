@@ -12,7 +12,7 @@ const UserSchema = new Schema ({
     },
     quotes: [QuoteSchema],
     tenValues: [ValueSchema],
-    authors: [AuthorSchema]
+    // authors: [AuthorSchema]
 })
 
 module.exports = UserSchema
