@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router({mergeParams: true});
 //What the heck is going on here, how does this allow us to edit and interact with Mongo?
 const UserModel = require('../db/models/User')
+const QuoteModel = require('../db/models/Quote')
 
 
 /* GET user listing. */
@@ -14,20 +15,17 @@ router.get('/', function(req, res, next) {
 });
 
 
-// router.get('/:userId', function(req, res, next) {
-//   UserModel.findById(req.params.userId)
-//   .then((user)=>{
-//     res.send(user)
-//   })
-// });
-
-// router.post('/', (req,res)=>{
-//   const newUser = new UserModel(req.body)
-//   newUser.save()
-//   .then((createdUser)=>{
-//     res.send(createdUser)
-//   })
-// })
+router.post('/', (req,res)=>{
+    UserModel.findById(req.params.userId)
+    .then((user)=>{
+        const newQuote = new QuoteModel(req.body)
+        user.quotes.push(newQuote)
+        return user.save()
+        .then(()=>{
+            res.send("Mission accomplished")
+        })
+    })
+})
 
 // router.delete('/:userId', (req,res) =>{
 //   UserModel.findByIdAndRemove(req.params.userId)
