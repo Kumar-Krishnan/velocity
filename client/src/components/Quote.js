@@ -18,6 +18,7 @@ class Quote extends Component {
                 <div>
                     {this.props.quote.author}
                 </div>
+                <button id={this.props.quote._id} onClick={this.props.handleAddingToValueBoard}>Add to Values</button>
             </div>
         );
     }

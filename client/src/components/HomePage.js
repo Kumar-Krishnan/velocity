@@ -27,11 +27,17 @@ class HomePage extends Component {
         .then((res)=>{
             this.setState({randomQuote:res.data})
             console.log(this.state.randomQuote)
-        })
-
-
-        
+        }) 
     }
+
+    handleAddingToValueBoard = (event) => {
+        event.preventDefault()
+        const userId = this.state.user._id
+        const quoteId = event.target.id
+        console.log('herro?',quoteId)
+        console.log("userID",userId)
+    }
+
     render() {
         return (
             <div>
@@ -39,7 +45,7 @@ class HomePage extends Component {
                     <h3>Hello {this.state.user.name}</h3>
                     <RandomQuote quote={this.state.randomQuote}/>
                     <Values values={this.state.user.tenValues}/>
-                    <Quotes quotes={this.state.user.quotes}/>
+                    <Quotes quotes={this.state.user.quotes} handleAddingToValueBoard={this.handleAddingToValueBoard}/>
                 </HeaderBox>
             </div>
         );
