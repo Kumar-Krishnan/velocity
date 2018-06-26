@@ -48,6 +48,7 @@ class Welcome extends Component {
             return user.name === this.state.userName
         })
         console.log(targetUser)
+        this.props.history.push(`/user/${targetUser.id}`)
     }
 
     handleChange = (event) =>{
