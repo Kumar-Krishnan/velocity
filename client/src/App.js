@@ -3,6 +3,7 @@ import './App.css';
 import Welcome from './components/Welcome';
 import NavBar from './components/NavBar';
 import axios from 'axios'
+import {Link, Switch, BrowserRouter as Router, Route} from 'react-router-dom'
 
 
 
@@ -17,14 +18,28 @@ class App extends Component {
     .then((res)=>{
       this.setState({users: res.data})
       console.log(this.state.users)
+      // const searchingName = this.state.users.find((user)=>{
+      //   return user.name === "Girish Krishnan"
+      // })
+      // console.log(searchingName)
     })
   }
+
+
   render() {
+    //what is the props in paranthesis doing here?
+    const WelcomePageWrapper = (props) =>(
+      <Welcome users={this.state.users} {...props}/>
+    )
     return (
-      <div className="App">
-        <NavBar/>
-        <Welcome/>
-      </div>
+      <Router>
+        <div>
+          <NavBar/>
+          <Switch>
+            <Route exact path="/" render={WelcomePageWrapper}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

@@ -37,19 +37,37 @@ const StyledCreateAccountDiv = styled.div`
 
 `
 class Welcome extends Component {
+    state = {
+        userName : ''
+    }
+
+    handleChange = (event) =>{
+        const userInput = event.target.value
+    
+        const newUserName = userInput
+        this.setState({userName: newUserName})
+        console.log(this.state.userName)
+    }
+
+
     render() {
         return (
             <StyledLoginDiv>
                 <form>
                 <div>
                    <label>User Name:</label>
-                   <input/>
+                   <input
+                   type="text"
+                   name="userName"
+                   value={this.state.userName}
+                   onChange={this.handleChange}
+                   />
 
                </div>
 
                <div>
                    <label>Password: </label>
-                   <input className="passInput"/>
+                   <input value="PlaceHolder" readOnly className="passInput"/>
                </div>
 
                <StyledButton>Login</StyledButton>

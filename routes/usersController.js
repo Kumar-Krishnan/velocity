@@ -24,7 +24,6 @@ router.get('/userNames', function(req, res, next) {
         id: loginId}
     }
     const allNames = users.map(getName)
-    console.log(allNames)
     res.send(allNames)
   })
 })
