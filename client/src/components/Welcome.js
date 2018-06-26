@@ -41,6 +41,15 @@ class Welcome extends Component {
         userName : ''
     }
 
+    handleSubmit = (event) =>{
+        event.preventDefault()
+        console.log(this.props.users)
+        const targetUser = this.props.users.find((user)=>{
+            return user.name === this.state.userName
+        })
+        console.log(targetUser)
+    }
+
     handleChange = (event) =>{
         const userInput = event.target.value
     
@@ -53,7 +62,7 @@ class Welcome extends Component {
     render() {
         return (
             <StyledLoginDiv>
-                <form>
+                <form onSubmit={this.handleSubmit}> 
                 <div>
                    <label>User Name:</label>
                    <input
@@ -70,7 +79,7 @@ class Welcome extends Component {
                    <input value="PlaceHolder" readOnly className="passInput"/>
                </div>
 
-               <StyledButton>Login</StyledButton>
+               <StyledButton type="submit">Login</StyledButton>
                 </form>
 
                 <StyledCreateAccountDiv>
