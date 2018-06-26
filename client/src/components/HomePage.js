@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
 import Quotes from './Quotes';
+import Values from './Values';
+
 
 const HeaderBox = styled.div`
     text-align: center;
@@ -18,7 +20,7 @@ class HomePage extends Component {
         axios.get(`/database/users/${currentUserId}`)
         .then((res)=>{
             this.setState({user: res.data})
-            console.log(this.state.user.quotes)
+            console.log(this.state.user.tenValues)
         })
 
         
@@ -28,6 +30,7 @@ class HomePage extends Component {
             <div>
                 <HeaderBox>
                     <h3>Hello {this.state.user.name}</h3>
+                    <Values values={this.state.user.tenValues}/>
                     <Quotes quotes={this.state.user.quotes}/>
                 </HeaderBox>
             </div>

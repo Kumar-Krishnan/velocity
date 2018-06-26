@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import Quote from './Quote'
+import styled from 'styled-components'
+
+// const QuoteDisplayer = styled.div`
+//     display: grid;
+
+// `
 class Quotes extends Component {
     
     render() {
@@ -8,11 +14,13 @@ class Quotes extends Component {
         }
         return (
             <div>
-                {
-                    this.props.quotes.map((quote, i)=>{
-                        return <Quote key={i} quote={quote}/>
-                    })
-                }
+                <div>
+                    {
+                        this.props.quotes.map((quote, i)=>{
+                            return <Quote key={i} quote={quote}/>
+                        })
+                    }
+                </div>
             </div>
         );
     }

@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
 
+const QuoteTextBox = styled.div`
+    border: 3px solid black
+`
+
+const authorTextBox = styled.div`
+    border: 3px solid white;
+`
 class Quote extends Component {
     render() {
         return (
             <div>
-                <div>
+                <QuoteTextBox>
                     {this.props.quote.text}
-                </div>
+                </QuoteTextBox>
                 <div>
                     {this.props.quote.author}
                 </div>
