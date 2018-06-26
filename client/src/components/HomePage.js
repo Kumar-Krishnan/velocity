@@ -11,7 +11,8 @@ const HeaderBox = styled.div`
 
 class HomePage extends Component {
     state = {
-        user: []
+        user: [],
+        randomQuote: []
     }
 
     componentDidMount(){
@@ -20,8 +21,9 @@ class HomePage extends Component {
         axios.get(`/database/users/${currentUserId}`)
         .then((res)=>{
             this.setState({user: res.data})
-            console.log(this.state.user.tenValues)
         })
+        axios.get('/database/allQuotes')
+
 
         
     }

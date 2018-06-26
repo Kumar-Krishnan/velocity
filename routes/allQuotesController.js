@@ -4,7 +4,9 @@ var router = express.Router({mergeParams: true});
 const allQuotes = require('../db/allQuotes/allQuotes.json')
 
 router.get('/', function(req, res, next) {
-      res.send(allQuotes)
+      const index = Math.floor(Math.random() *1501)
+      res.send(allQuotes[index])
+      console.log(index)
 });
 
 module.exports = router;
