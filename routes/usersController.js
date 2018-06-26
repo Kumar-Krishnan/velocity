@@ -11,8 +11,23 @@ router.get('/', function(req, res, next) {
   .then((users)=>{
     res.send(users)
   })
-});
+})
 
+router.get('/userNames', function(req, res, next) {
+  UserModel.find()
+  .then((users)=>{
+    function getName(user) {
+      const loginName = user.name
+      const loginId = user._id
+      return {
+        name: loginName,
+        id: loginId}
+    }
+    const allNames = users.map(getName)
+    console.log(allNames)
+    res.send(allNames)
+  })
+})
 
 router.get('/:userId', function(req, res, next) {
   UserModel.findById(req.params.userId)
@@ -42,6 +57,8 @@ router.put('/:userId',(req,res)=>{
       res.send(user)
   })
 })
+
+
 
 
 module.exports = router;
