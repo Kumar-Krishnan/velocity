@@ -18,8 +18,8 @@ router.get('/', function(req, res, next) {
 router.post('/', (req,res)=>{
     UserModel.findById(req.params.userId)
     .then((user)=>{
-        const newValue = new ValueModel(req.body)
-        user.tenValues.push(newValue)
+        const value = new ValueModel(req.body)
+        user.tenValues.push(value)
         return user.save()
         .then(()=>{
             res.send("Mission accomplished")

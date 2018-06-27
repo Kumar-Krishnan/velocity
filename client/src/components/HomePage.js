@@ -30,9 +30,13 @@ class HomePage extends Component {
     }
 
    addToValueBoard = (value) => {
-        const newValue = value
-        const userId = this.state.user._id
-        console.log(userId,newValue)
+        const newValue = {
+            text: value.text,
+            author: value.author
+        }
+        console.log(newValue)
+        const userId= this.state.user._id
+        axios.post(`/database/users/${userId}/values`, newValue)
     }
 
     
