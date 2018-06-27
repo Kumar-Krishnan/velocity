@@ -12,7 +12,9 @@ const HeaderBox = styled.div`
 class HomePage extends Component {
     state = {
         user: [],
-        randomQuote: []
+        randomQuote: [],
+        // borrowed from stack overflow
+        key: Math.random()
     }
 
     componentDidMount(){
@@ -29,6 +31,7 @@ class HomePage extends Component {
         }) 
     }
 
+    
    addToValueBoard = (value) => {
         const newValue = {
             text: value.text,
@@ -38,8 +41,25 @@ class HomePage extends Component {
         const checker = this.state.user.tenValues.find((ogValue)=>{
             return ogValue.text === value.text
         })
+
+        let userState = []
+        let randomQuoteState = []
+
         if (checker === undefined){
             axios.post(`/database/users/${userId}/values`, newValue)
+            .then(()=>{
+                return axios.get(`/database/users/${userId}`)
+            })
+            .then((res1)=>{
+                userState = res1.data
+                return axios.get(`/database/allQuotes`)
+            })
+            .then((res2)=>{
+                randomQuoteState = res2.data
+                        console.log(randomQuoteState,userState)
+            })   
+
+
         }
         else{
             console.log("Stop it!")

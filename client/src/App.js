@@ -32,13 +32,18 @@ class App extends Component {
     const WelcomePageWrapper = (props) =>(
       <Welcome users={this.state.users} {...props}/>
     )
+
+    const HomePageWrapper = (props) =>(
+      <HomePage {...props}/>
+    )
+
     return (
       <Router>
         <div>
           <NavBar/>
           <Switch>
             <Route exact path="/" render={WelcomePageWrapper}/>
-            <Route exact path="/user/:userId/" component={HomePage}/>
+            <Route exact path="/user/:userId/" render={HomePageWrapper}/>
           </Switch>
         </div>
       </Router>

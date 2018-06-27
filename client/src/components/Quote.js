@@ -5,8 +5,8 @@ const QuoteTextBox = styled.div`
     border: 3px solid black
 `
 
-const authorTextBox = styled.div`
-    border: 3px solid white;
+const QuoteBox= styled.div`
+    background-color:green;
 `
 class Quote extends Component {
 
@@ -16,7 +16,7 @@ class Quote extends Component {
     }
     render() {
         return (
-            <div>
+            <QuoteBox>
                 <QuoteTextBox>
                     {this.props.quote.text}
                 </QuoteTextBox>
@@ -24,7 +24,7 @@ class Quote extends Component {
                     {this.props.quote.author}
                 </div>
                 <button onClick={this.handleValueSubmit}>Add to Values</button>
-            </div>
+            </QuoteBox>
         );
     }
 }
