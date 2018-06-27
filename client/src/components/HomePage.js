@@ -59,13 +59,44 @@ class HomePage extends Component {
                 console.log(randomQuoteState,userState)
                 this.setState({user: userState, randomQuote: randomQuoteState})
             })
-
-
         }
         else{
             console.log("Stop it!")
         }
         
+    }
+
+    addToQuoteBoard = (quote) => {
+        const newQuote = {
+            text: quote.text,
+            author: quote.author
+        }
+        const userId= this.state.user._id
+        const checker = this.state.user.quotes.find((ogQuote)=>{
+            return ogQuote.text === quote.text
+        })
+
+        let userState = []
+        let randomQuoteState = []
+
+        if (checker === undefined){
+            axios.post(`/database/users/${userId}/quotes`, newQuote)
+            .then(()=>{
+                return axios.get(`/database/users/${userId}`)
+            })
+            .then((res1)=>{
+                userState = res1.data
+                return axios.get(`/database/allQuotes`)
+            })
+            .then((res2)=>{
+                randomQuoteState = res2.data
+                console.log(randomQuoteState,userState)
+                this.setState({user: userState, randomQuote: randomQuoteState})
+            })
+        }
+        else{
+            console.log("Stop it!")
+        }
     }
 
     
@@ -75,8 +106,8 @@ class HomePage extends Component {
             <div>
                 <HeaderBox>
                     <h3>Hello {this.state.user.name}</h3>
-                    <RandomQuote quote={this.state.randomQuote} addToValueBoard={this.addToValueBoard}/>
-                    <Values values={this.state.user.tenValues} />
+                    <RandomQuote quote={this.state.randomQuote} addToQuoteBoard={this.addToQuoteBoard} addToValueBoard={this.addToValueBoard}/>
+                    <Values values={this.state.user.tenValues}  />
                     <Quotes quotes={this.state.user.quotes} addToValueBoard={this.addToValueBoard}/>
                 </HeaderBox>
             </div>
