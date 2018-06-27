@@ -56,8 +56,9 @@ class HomePage extends Component {
             })
             .then((res2)=>{
                 randomQuoteState = res2.data
-                        console.log(randomQuoteState,userState)
-            })   
+                console.log(randomQuoteState,userState)
+                this.setState({user: userState, randomQuote: randomQuoteState})
+            })
 
 
         }
