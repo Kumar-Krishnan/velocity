@@ -54,8 +54,8 @@ class HomePage extends Component {
             <div>
                 <HeaderBox>
                     <h3>Hello {this.state.user.name}</h3>
-                    <RandomQuote quote={this.state.randomQuote}/>
-                    <Values values={this.state.user.tenValues}/>
+                    <RandomQuote quote={this.state.randomQuote} addToValueBoard={this.addToValueBoard}/>
+                    <Values values={this.state.user.tenValues} />
                     <Quotes quotes={this.state.user.quotes} addToValueBoard={this.addToValueBoard}/>
                 </HeaderBox>
             </div>

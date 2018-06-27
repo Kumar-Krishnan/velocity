@@ -23,10 +23,9 @@ class Quote extends Component {
                 <div>
                     {this.props.quote.author}
                 </div>
-                <button x="y" content={this.props.quote._id} author={this.props.quote.author} onClick={this.handleValueSubmit}>Add to Values</button>
+                <button onClick={this.handleValueSubmit}>Add to Values</button>
             </div>
         );
     }
 }
-//onClick={()=>this.props.function()}
 export default Quote;
