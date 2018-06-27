@@ -5,7 +5,6 @@ import Quotes from './Quotes';
 import Values from './Values';
 import RandomQuote from './RandomQuote';
 
-
 const HeaderBox = styled.div`
     text-align: center;
 `
@@ -30,13 +29,10 @@ class HomePage extends Component {
         }) 
     }
 
-    handleAddingToValueBoard = (event) => {
-        event.preventDefault()
+   addToValueBoard = (value) => {
+        const newValue = value
         const userId = this.state.user._id
-        const quoteId = event.target.id
-        console.log('herro?',quoteId)
-        console.log("userID",userId)
-        // axios.post(`/database/users/${userId}/values/$`)
+        console.log(userId,newValue)
     }
 
     
@@ -48,7 +44,7 @@ class HomePage extends Component {
                     <h3>Hello {this.state.user.name}</h3>
                     <RandomQuote quote={this.state.randomQuote}/>
                     <Values values={this.state.user.tenValues}/>
-                    <Quotes quotes={this.state.user.quotes} handleAddingToValueBoard={this.handleAddingToValueBoard}/>
+                    <Quotes quotes={this.state.user.quotes} addToValueBoard={this.addToValueBoard}/>
                 </HeaderBox>
             </div>
         );

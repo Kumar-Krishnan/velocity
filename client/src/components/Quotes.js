@@ -17,7 +17,7 @@ class Quotes extends Component {
                 <div>
                     {
                         this.props.quotes.map((quote, i)=>{
-                            return <Quote key={i} quote={quote} handleAddingToValueBoard={this.props.handleAddingToValueBoard}/>
+                            return <Quote key={i} quote={quote} addToValueBoard={this.props.addToValueBoard}/>
                         })
                     }
                 </div>

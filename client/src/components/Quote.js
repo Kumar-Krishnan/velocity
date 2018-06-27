@@ -9,6 +9,11 @@ const authorTextBox = styled.div`
     border: 3px solid white;
 `
 class Quote extends Component {
+
+    handleValueSubmit = (event) =>{
+        event.preventDefault()
+        this.props.addToValueBoard(this.props.quote)
+    }
     render() {
         return (
             <div>
@@ -18,10 +23,10 @@ class Quote extends Component {
                 <div>
                     {this.props.quote.author}
                 </div>
-                <button id={this.props.quote._id} onClick={this.props.handleAddingToValueBoard}>Add to Values</button>
+                <button x="y" content={this.props.quote._id} author={this.props.quote.author} onClick={this.handleValueSubmit}>Add to Values</button>
             </div>
         );
     }
 }
-
+//onClick={()=>this.props.function()}
 export default Quote;
