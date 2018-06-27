@@ -34,9 +34,17 @@ class HomePage extends Component {
             text: value.text,
             author: value.author
         }
-        console.log(newValue)
         const userId= this.state.user._id
-        axios.post(`/database/users/${userId}/values`, newValue)
+        const checker = this.state.user.tenValues.find((ogValue)=>{
+            return ogValue.text === value.text
+        })
+        if (checker === undefined){
+            axios.post(`/database/users/${userId}/values`, newValue)
+        }
+        else{
+            console.log("Stop it!")
+        }
+        
     }
 
     
