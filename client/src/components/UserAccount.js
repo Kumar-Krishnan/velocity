@@ -3,15 +3,18 @@ import axios from 'axios'
 class UserAccount extends Component {
 
     state = {
-        user: {}
+        user: {
+            quotes: []
+        }
     }
     componentDidMount(){
         axios.get(`/database/users/${this.props.match.params.userId}`)
         .then((res)=>{
             this.setState({user: res.data})
             console.log(this.props.match.params.userId)
-
+            console.log(this.state.user.quotes)
         })
+        
     }
 
     handleChange = (event) =>{
@@ -38,6 +41,18 @@ class UserAccount extends Component {
 
     handleDeleteSubmit = () =>{
         axios.delete(`/database/users/${this.props.match.params.userId}`)
+    }
+
+    clearAllQuotes = (event) =>{
+        event.preventDefault()
+        const changeToBeSent = {
+            quotes:[]
+        }
+        console.log(changeToBeSent)
+        axios.put(`/database/users/${this.props.match.params.userId}`,changeToBeSent)
+        .then((res)=>{
+            console.log(res.data)
+        })
     }
 
     render() {
@@ -67,6 +82,10 @@ class UserAccount extends Component {
                     <button type="submit">Save Changes</button>
                     </form>
                     <button onClick={this.handleDeleteSubmit}> Delete User</button>
+                    <div>
+                        <h4>{this.state.user.quotes.length}</h4>
+                        <button onClick={this.clearAllQuotes}>Clear all Quotes.</button>
+                    </div>
             </div>
         );
     }
