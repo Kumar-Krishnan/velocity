@@ -12,6 +12,15 @@ class UserAccount extends Component {
             this.setState({user: res.data})
         })
     }
+
+    handleChange = (event) =>{
+        const inputField = event.target.name
+        const newValue = event.target.value
+        const alteredUser = [...this.state.user]
+        alteredUser[inputField] = newValue
+        this.setState({user: alteredUser})
+        console.log(this.state.user[inputField])
+    }
     render() {
         
         return (
@@ -23,7 +32,7 @@ class UserAccount extends Component {
                        type="text"
                        name="name"
                        value={this.state.user.name}
-                    //    onChange={this.handleChange}
+                       onChange={this.handleChange}
                     />
 
                     </div>
@@ -33,7 +42,8 @@ class UserAccount extends Component {
                         <input 
                         value="PlaceHolder"
                         name="password"
-                        value={this.state.user.password}/>
+                        value={this.state.user.password}
+                        onChange={this.handleChange}/>
                     </div>
                     <button type="submit">Save Changes</button>
                     </form>
