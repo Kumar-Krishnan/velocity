@@ -5,7 +5,12 @@ const ValueBox = styled.div`
     background-color: gold;
 `
 class Value extends Component {
-    
+
+    handleValueRemove = (event)=>{
+        event.preventDefault()
+        this.props.deleteFromValueBoard(this.props.value._id)
+    }
+
     render() {
         return (
             <ValueBox>
@@ -15,6 +20,7 @@ class Value extends Component {
                 <div>
                     {this.props.value.author}
                 </div>
+                <button onClick={this.handleValueRemove}>Remove Value</button>
             </ValueBox>
         );
     }
