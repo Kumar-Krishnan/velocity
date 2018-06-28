@@ -82,9 +82,12 @@ class Welcome extends Component {
         if (targetUser === undefined) {
             axios.post(`/database/users/`, newUser)
             .then((res)=>{
-                console.log(res)
+                const userId = res.data._id
+                console.log(userId)
+                this.props.history.push(`/user/${userId}`)
             })
         }
+        
     }
 
     render() {
