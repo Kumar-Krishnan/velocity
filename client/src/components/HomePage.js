@@ -99,6 +99,17 @@ class HomePage extends Component {
         }
     }
 
+    deleteFromQuoteBoard = (quoteId) => {
+        const userId= this.state.user._id
+        axios.delete(`/database/users/${userId}/quotes/${quoteId}`)
+        .then(()=>{
+            return axios.get(`/database/users/${userId}`)
+        })
+        .then((res)=>{
+            this.setState({user: res.data})
+        })
+    }
+
     newRandomQuote = () =>{
         return axios.get(`/database/allQuotes`)
         .then((res)=>{
@@ -113,7 +124,7 @@ class HomePage extends Component {
                     <h3>Hello {this.state.user.name}</h3>
                     <RandomQuote quote={this.state.randomQuote} newRandomQuote={this.newRandomQuote} addToQuoteBoard={this.addToQuoteBoard} addToValueBoard={this.addToValueBoard}/>
                     <Values values={this.state.user.tenValues}  />
-                    <Quotes quotes={this.state.user.quotes} addToValueBoard={this.addToValueBoard}/>
+                    <Quotes quotes={this.state.user.quotes} deleteFromQuoteBoard={this.deleteFromQuoteBoard} addToValueBoard={this.addToValueBoard}/>
                 </HeaderBox>
             </div>
         );

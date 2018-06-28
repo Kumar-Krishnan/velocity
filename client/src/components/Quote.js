@@ -14,6 +14,10 @@ class Quote extends Component {
         event.preventDefault()
         this.props.addToValueBoard(this.props.quote)
     }
+    handleQuoteDeleteSubmit = (event) =>{
+        event.preventDefault()
+        this.props.deleteFromQuoteBoard(this.props.quote._id)
+    }
     render() {
         return (
             <QuoteBox>
@@ -24,6 +28,7 @@ class Quote extends Component {
                     {this.props.quote.author}
                 </div>
                 <button onClick={this.handleValueSubmit}>Add to Values</button>
+                <button onClick={this.handleQuoteDeleteSubmit}> Delete Quote</button>
             </QuoteBox>
         );
     }
