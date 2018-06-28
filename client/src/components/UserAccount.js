@@ -3,13 +3,14 @@ import axios from 'axios'
 class UserAccount extends Component {
 
     state = {
-        user: []
+        user: {}
     }
     componentDidMount(){
         axios.get(`/database/users/${this.props.match.params.userId}`)
         .then((res)=>{
-            console.log(res.data)
             this.setState({user: res.data})
+            console.log(this.props.match.params.userId)
+
         })
     }
 
@@ -21,6 +22,20 @@ class UserAccount extends Component {
         this.setState({user: alteredUser})
         console.log(this.state.user[inputField])
     }
+    
+    handleSubmit = (event) =>{
+        event.preventDefault()
+        const userToBeSent = {
+            name: this.state.user.name,
+            password: this.state.user.password
+        }
+        console.log(userToBeSent)
+        axios.put(`/database/users/${this.props.match.params.userId}`,userToBeSent)
+        .then((res)=>{
+            console.log(res.data)
+        })
+    }
+
     render() {
         
         return (
