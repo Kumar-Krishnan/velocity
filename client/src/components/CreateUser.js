@@ -20,6 +20,11 @@ class CreateUser extends Component {
 
     handleSubmit = (event) =>{
         event.preventDefault()
+        const newUser = {
+            name: this.state.newUserName,
+            password: "jello"
+        }
+        console.log(newUser)
 
     }
     

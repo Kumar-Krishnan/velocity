@@ -81,6 +81,9 @@ class Welcome extends Component {
 
         if (targetUser === undefined) {
             axios.post(`/database/users/`, newUser)
+            .then((res)=>{
+                console.log(res)
+            })
         }
     }
 
@@ -108,7 +111,7 @@ class Welcome extends Component {
                 </form>
 
                 <StyledCreateAccountDiv>
-                    <CreateUser/>
+                    <CreateUser submitNewUser={this.submitNewUser}/>
                 </StyledCreateAccountDiv>
 
             </StyledLoginDiv>
