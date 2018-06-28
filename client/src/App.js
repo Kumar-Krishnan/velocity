@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import axios from 'axios'
 import {Link, Switch, BrowserRouter as Router, Route} from 'react-router-dom'
 import HomePage from './components/HomePage';
+import UserAccount from './components/UserAccount'
 
 
 
@@ -44,6 +45,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={WelcomePageWrapper}/>
             <Route exact path="/user/:userId/" render={HomePageWrapper}/>
+            <Route exact path="/user/:userId/settings" component={UserAccount}/>
           </Switch>
         </div>
       </Router>
