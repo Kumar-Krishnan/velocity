@@ -24,7 +24,7 @@ class CreateUser extends Component {
             name: this.state.newUserName,
             password: "jello"
         }
-        console.log(newUser)
+        this.props.submitNewUser(newUser)
 
     }
     
