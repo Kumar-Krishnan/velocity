@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import axios from 'axios'
+import CreateUser from './CreateUser';
 
 const StyledLoginDiv = styled.div`
     margin-top: 20px;
@@ -38,13 +40,26 @@ const StyledCreateAccountDiv = styled.div`
 `
 class Welcome extends Component {
     state = {
-        userName : ''
+        userName : '',
+        users:[]
     }
+
+    componentDidMount(){
+        axios.get('database/users/userNames')
+        .then((res)=>{
+          this.setState({users: res.data})
+          // console.log(this.state.users)
+          // const searchingName = this.state.users.find((user)=>{
+          //   return user.name === "Girish Krishnan"
+          // })
+          // console.log(searchingName)
+        })
+      }
 
     handleSubmit = (event) =>{
         event.preventDefault()
-        console.log(this.props.users)
-        const targetUser = this.props.users.find((user)=>{
+        console.log(this.state.users)
+        const targetUser = this.state.users.find((user)=>{
             return user.name === this.state.userName
         })
         console.log(targetUser)
@@ -84,7 +99,7 @@ class Welcome extends Component {
                 </form>
 
                 <StyledCreateAccountDiv>
-                    SIGN UP!
+                    <CreateUser/>
                 </StyledCreateAccountDiv>
 
             </StyledLoginDiv>
