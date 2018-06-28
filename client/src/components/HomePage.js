@@ -99,14 +99,19 @@ class HomePage extends Component {
         }
     }
 
-    
+    newRandomQuote = () =>{
+        return axios.get(`/database/allQuotes`)
+        .then((res)=>{
+            this.setState({randomQuote: res.data})
+        })
+    }
 
     render() {
         return (
             <div>
                 <HeaderBox>
                     <h3>Hello {this.state.user.name}</h3>
-                    <RandomQuote quote={this.state.randomQuote} addToQuoteBoard={this.addToQuoteBoard} addToValueBoard={this.addToValueBoard}/>
+                    <RandomQuote quote={this.state.randomQuote} newRandomQuote={this.newRandomQuote} addToQuoteBoard={this.addToQuoteBoard} addToValueBoard={this.addToValueBoard}/>
                     <Values values={this.state.user.tenValues}  />
                     <Quotes quotes={this.state.user.quotes} addToValueBoard={this.addToValueBoard}/>
                 </HeaderBox>
