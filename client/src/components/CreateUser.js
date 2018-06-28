@@ -10,7 +10,26 @@ const CreateUserBox = styled.div`
     display: inline-block;
 `
 
+
+
 class CreateUser extends Component {
+
+    state = {
+        newUserName: ''
+    }
+
+    handleSubmit = (event) =>{
+        event.preventDefault()
+
+    }
+    
+    handleChange = (event) =>{
+        const userInput = event.target.value
+        const newUserName = userInput
+        this.setState({newUserName: newUserName})
+        console.log(this.state.newUserName)
+    }
+
     render() {
         return (
             <CreateUserWrapper>
@@ -20,10 +39,10 @@ class CreateUser extends Component {
                     <div>
                     <label>User Name:</label>
                     <input
-                    //    type="text"
-                    //    name="userName"
-                    //    value={this.state.userName}
-                    //    onChange={this.handleChange}
+                       type="text"
+                       name="userName"
+                       value={this.state.userName}
+                       onChange={this.handleChange}
                     />
 
                     </div>

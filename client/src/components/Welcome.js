@@ -45,7 +45,7 @@ class Welcome extends Component {
     }
 
     componentDidMount(){
-        axios.get('database/users/userNames')
+        axios.get('/database/users/userNames')
         .then((res)=>{
           this.setState({users: res.data})
           // console.log(this.state.users)
@@ -56,7 +56,7 @@ class Welcome extends Component {
         })
       }
 
-    handleSubmit = (event) =>{
+    handleSubmitLogin = (event) =>{
         event.preventDefault()
         console.log(this.state.users)
         const targetUser = this.state.users.find((user)=>{
@@ -74,11 +74,20 @@ class Welcome extends Component {
         console.log(this.state.userName)
     }
 
+    submitNewUser = (newUser) =>{
+        const targetUser = this.state.users.find((user)=>{
+            return user.name === this.state.userName
+        })
+
+        if (targetUser === undefined) {
+            axios.post(`/database/users/`, newUser)
+        }
+    }
 
     render() {
         return (
             <StyledLoginDiv>
-                <form onSubmit={this.handleSubmit}> 
+                <form onSubmit={this.handleSubmitLogin}> 
                 <div>
                    <label>User Name:</label>
                    <input
