@@ -23,7 +23,7 @@ class UserAccount extends Component {
         console.log(this.state.user[inputField])
     }
     
-    handleSubmit = (event) =>{
+    handleSubmitChange = (event) =>{
         event.preventDefault()
         const userToBeSent = {
             name: this.state.user.name,
@@ -36,11 +36,15 @@ class UserAccount extends Component {
         })
     }
 
+    handleDeleteSubmit = () =>{
+        axios.delete(`/database/users/${this.props.match.params.userId}`)
+    }
+
     render() {
         
         return (
             <div>
-                <form onSubmit={this.handleSubmit}> 
+                <form onSubmit={this.handleSubmitChange}> 
                     <div>
                     <label>User Name:</label>
                     <input
@@ -62,6 +66,7 @@ class UserAccount extends Component {
                     </div>
                     <button type="submit">Save Changes</button>
                     </form>
+                    <button onClick={this.handleDeleteSubmit}> Delete User</button>
             </div>
         );
     }
