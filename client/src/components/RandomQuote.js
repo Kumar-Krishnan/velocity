@@ -30,12 +30,12 @@ class RandomQuote extends Component {
             return null
         }
         return (
-            <div onClick={this.handleNewRandomSubmit}>
+            <div>
                 <h4>{this.props.quote.quoteAuthor}</h4>
                 <h4>{this.props.quote.quoteText}</h4>
                 <button onClick={this.handleNewRandomSubmit}> Show me another quote</button>
-                <button onClick={this.handleValueSubmit}>Add to Values</button>
-                <button onClick={this.handleQuoteSubmit}> Add to Quotes</button>
+                <button onClick={this.handleNewRandomSubmit} onClick={this.handleValueSubmit}>Add to Values</button>
+                <button onClick={this.handleNewRandomSubmit} onClick={this.handleQuoteSubmit}> Add to Quotes</button>
             </div>
         );
     }
