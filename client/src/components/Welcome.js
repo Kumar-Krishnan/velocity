@@ -76,16 +76,19 @@ class Welcome extends Component {
 
     submitNewUser = (newUser) =>{
         const targetUser = this.state.users.find((user)=>{
-            return user.name === this.state.userName
+            return user.name === newUser.name
         })
 
-        if (targetUser === undefined) {
+        if (targetUser === undefined && newUser.name !== "") {
             axios.post(`/database/users/`, newUser)
             .then((res)=>{
                 const userId = res.data._id
                 console.log(userId)
                 this.props.history.push(`/user/${userId}`)
             })
+        }
+        else{
+            alert("Please enter another user name, this one is taken")
         }
         
     }

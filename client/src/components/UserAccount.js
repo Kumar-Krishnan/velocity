@@ -28,15 +28,29 @@ class UserAccount extends Component {
     
     handleSubmitChange = (event) =>{
         event.preventDefault()
-        const userToBeSent = {
-            name: this.state.user.name,
-            password: this.state.user.password
-        }
-        console.log(userToBeSent)
-        axios.put(`/database/users/${this.props.match.params.userId}`,userToBeSent)
+        let existingNames = []
+        axios.get('/database/users/userNames')
         .then((res)=>{
-            console.log(res.data)
+          const targetUser = res.data.find((user)=>{
+            return user.name === this.state.user.name
+          })
+        if (this.state.user.name !== "" && this.state.user.password !== "" && targetUser === undefined ){
+            const userToBeSent = {
+                name: this.state.user.name,
+                password: this.state.user.password
+            }
+            console.log(userToBeSent)
+            axios.put(`/database/users/${this.props.match.params.userId}`,userToBeSent)
+            .then((res)=>{
+                console.log(res.data)
+            })
+        }
+        else{
+            alert("Please enter a valid name and password.")
+        }
         })
+        
+        
     }
 
     handleDeleteSubmit = () =>{
