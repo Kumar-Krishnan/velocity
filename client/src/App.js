@@ -6,6 +6,8 @@ import axios from 'axios'
 import {Link, Switch, BrowserRouter as Router, Route} from 'react-router-dom'
 import HomePage from './components/HomePage';
 import UserAccount from './components/UserAccount'
+import QuotesPage from './components/QuotesSubPage/QuotesPage';
+import ValuesPage from './components/ValuesSubPage/ValuesPage';
 
 
 
@@ -46,6 +48,8 @@ class App extends Component {
             <Route exact path="/" render={WelcomePageWrapper}/>
             <Route exact path="/user/:userId/" render={HomePageWrapper}/>
             <Route exact path="/user/:userId/settings" component={UserAccount}/>
+            <Route exact path="/user/:userId/quotes" component={QuotesPage}/>
+            <Route exact path="/user/:userId/values" component={ValuesPage}/>
           </Switch>
         </div>
       </Router>

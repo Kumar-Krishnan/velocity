@@ -12,7 +12,7 @@ class Values extends Component {
                     
                     {
                         this.props.values.map((value, i)=>{
-                            return <Value key={i} deleteFromValueBoard={this.props.deleteFromValueBoard} value={value} />
+                            return <Value key={i} valueCount={i} deleteFromValueBoard={this.props.deleteFromValueBoard} value={value} />
                         })
                     }
                 </div>

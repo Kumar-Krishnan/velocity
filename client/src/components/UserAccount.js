@@ -52,6 +52,7 @@ class UserAccount extends Component {
         axios.put(`/database/users/${this.props.match.params.userId}`,changeToBeSent)
         .then((res)=>{
             console.log(res.data)
+            this.setState({user:res.data})
         })
     }
 
@@ -83,7 +84,7 @@ class UserAccount extends Component {
                     </form>
                     <button onClick={this.handleDeleteSubmit}> Delete User</button>
                     <div>
-                        <h4>{this.state.user.quotes.length}</h4>
+                        {/* <h4>{this.state.user.quotes.length}</h4> */}
                         <button onClick={this.clearAllQuotes}>Clear all Quotes.</button>
                     </div>
             </div>

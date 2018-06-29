@@ -18,12 +18,23 @@ router.get('/', function(req, res, next) {
 router.post('/', (req,res)=>{
     UserModel.findById(req.params.userId)
     .then((user)=>{
-        const value = new ValueModel(req.body)
-        user.tenValues.push(value)
-        return user.save()
-        .then(()=>{
-            res.send("Mission accomplished")
-        })
+        if(user.tenValues.length < 10) {
+          const value = new ValueModel(req.body)
+          user.tenValues.unshift(value)
+          return user.save()
+          .then(()=>{
+              res.send("Mission accomplished")
+          })
+        }
+        else{
+          const value = new ValueModel(req.body)
+          user.tenValues.unshift(value)
+          user.tenValues.pop()
+          return user.save()
+          .then(()=>{
+              res.send("Mission accomplished")
+          })
+        }
     })
 })
 

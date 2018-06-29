@@ -8,6 +8,8 @@ const QuoteTextBox = styled.div`
 const QuoteBox= styled.div`
     background-color:green;
 `
+
+
 class Quote extends Component {
 
     handleValueSubmit = (event) =>{
