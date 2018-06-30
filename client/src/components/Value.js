@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const ValueBox = styled.div`
-    background-color: gold;
+    border-radius: 10px;
+    background-color: #fffab1;
+    border: 2px solid green;
+    margin-bottom: 15px;
 `
 const RemoveValueButton = styled.button`
     background-color:transparent;

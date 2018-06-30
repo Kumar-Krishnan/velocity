@@ -38,6 +38,13 @@ const StyledCreateAccountDiv = styled.div`
     border-radius: 15px;
 
 `
+
+const StyledLoginForm = styled.form`
+    text-align:center;
+    .loginButton{
+        font-size: 15px;
+    }
+`
 class Welcome extends Component {
     state = {
         userName : '',
@@ -96,7 +103,7 @@ class Welcome extends Component {
     render() {
         return (
             <StyledLoginDiv>
-                <form onSubmit={this.handleSubmitLogin}> 
+                <StyledLoginForm onSubmit={this.handleSubmitLogin}> 
                 <div>
                    <label>User Name:</label>
                    <input
@@ -113,8 +120,8 @@ class Welcome extends Component {
                    <input value="PlaceHolder" readOnly className="passInput"/>
                </div>
 
-               <StyledButton type="submit">Login</StyledButton>
-                </form>
+               <StyledButton className="loginButton" type="submit">Login</StyledButton>
+                </StyledLoginForm>
 
                 <StyledCreateAccountDiv>
                     <CreateUser submitNewUser={this.submitNewUser}/>

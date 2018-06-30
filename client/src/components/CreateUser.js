@@ -6,8 +6,16 @@ const CreateUserWrapper = styled.div`
 `
 
 const CreateUserBox = styled.div`
-    width: 40vw;
+    width: 50vw;
     display: inline-block;
+    form{
+        text-align:center;
+        div{
+            label{
+                text-align:center;
+            }
+        }
+    }
 `
 
 
@@ -42,7 +50,7 @@ class CreateUser extends Component {
                 <CreateUserBox>
                     <form onSubmit={this.handleSubmit}> 
                     <div>
-                    <label>User Name:</label>
+                    <label>New User Name</label>
                     <input
                        type="text"
                        name="userName"
@@ -53,7 +61,7 @@ class CreateUser extends Component {
                     </div>
 
                     <div>
-                        <label>Password: </label>
+                        <label>Create Password</label>
                         <input value="PlaceHolder" readOnly className="passInput"/>
                     </div>
                     <button type="submit">Create USER!</button>
