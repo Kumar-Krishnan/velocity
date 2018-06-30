@@ -4,6 +4,10 @@ import styled from 'styled-components'
 
 const StyledValueBox = styled.div`
     margin: 0 4vw;
+    background-color: #c7ec9f;
+    border-radius: 7px;
+    padding: 20px 10px
+    margin-bottom: 40px;
 `
 class Values extends Component {
     render() {
@@ -12,7 +16,10 @@ class Values extends Component {
         }
         return (
             <div>
-                <h3>Kumar Krishnan's Current Trajectory</h3>
+                <h3>Current Trajectory
+                    <br/>
+                    Board
+                </h3>
                 <StyledValueBox>
                     
                     {
