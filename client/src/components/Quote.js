@@ -2,11 +2,23 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const QuoteTextBox = styled.div`
-    border: 3px solid black
+    margin-top: 15px;
 `
 
 const QuoteBox= styled.div`
-    background-color:green;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 2px solid green;
+    margin-bottom: 15px;
+    h6{
+        margin:10px;
+    }
+    .author{
+        margin-bottom: 5px;
+    }
+    button{
+        margin-bottom: 5px;
+    }
 `
 
 

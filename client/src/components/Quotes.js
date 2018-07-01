@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import Quote from './Quote'
 import styled from 'styled-components'
 
-// const QuoteDisplayer = styled.div`
-//     display: grid;
-
-// `
+const StyledQuoteBox = styled.div`
+    margin: 0 4vw;
+    background-color: #4291c3;
+    border-radius: 7px;
+    padding: 20px 10px
+    margin-bottom: 40px;
+    border:1px solid black;
+`
 class Quotes extends Component {
     
     render() {
@@ -14,13 +18,13 @@ class Quotes extends Component {
         }
         return (
             <div>
-                <div>
+                <StyledQuoteBox>
                     {
                         this.props.quotes.map((quote, i)=>{
                             return <Quote key={i} quote={quote} deleteFromQuoteBoard={this.props.deleteFromQuoteBoard} addToValueBoard={this.props.addToValueBoard}/>
                         })
                     }
-                </div>
+                </StyledQuoteBox>
             </div>
         );
     }

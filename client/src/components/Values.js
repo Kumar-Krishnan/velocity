@@ -8,6 +8,7 @@ const StyledValueBox = styled.div`
     border-radius: 7px;
     padding: 20px 10px
     margin-bottom: 40px;
+    border:solid black 1px;
 `
 class Values extends Component {
     render() {
