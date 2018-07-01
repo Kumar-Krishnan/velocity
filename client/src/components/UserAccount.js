@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import NavBar from './NavBar'
 class UserAccount extends Component {
 
     state = {
@@ -74,6 +75,7 @@ class UserAccount extends Component {
         
         return (
             <div>
+                <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <form onSubmit={this.handleSubmitChange}> 
                     <div>
                     <label>User Name:</label>

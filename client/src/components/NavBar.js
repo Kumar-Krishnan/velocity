@@ -10,13 +10,32 @@ const GridNavBar = styled.div`
         border: 2px solid black;
     }
 `
+
 class NavBar extends Component {
+    handleHome = (event) =>{
+        event.preventDefault()
+        if (this.props.userId !== undefined){
+            this.props.history.push(`/user/${this.props.userId}`)
+        }
+        else{
+            alert("Please login or choose a valid user profile")
+        }
+    }
+    handleQuotes = (event)=>{
+        event.preventDefault()
+        if (this.props.userId !== undefined){
+            this.props.history.push(`/user/${this.props.userId}/quotes`)
+        }
+        else{
+            alert("Please login or choose a valid user profile")
+        }
+    }
     render() {
         return (
             <GridNavBar className="grid">
-                <div>Home</div>
+                <div onClick={this.handleHome}>Home</div>
                 <div>Values</div>
-                <div>Quotes</div>
+                <div onClick={this.handleQuotes}>Quotes</div>
                 <div>Settings</div>
             </GridNavBar>
         );

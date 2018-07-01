@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Values from '../Values';
+import NavBar from '../NavBar'
 
 class ValuesPage extends Component {
     state ={
@@ -20,6 +21,7 @@ class ValuesPage extends Component {
     render() {
         return (
             <div>
+                <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <Values values={this.state.user.tenValues}/>
             </div>
         );

@@ -44,7 +44,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar/>
           <Switch>
             <Route exact path="/" render={WelcomePageWrapper}/>
             <Route exact path="/user/:userId/" render={HomePageWrapper}/>

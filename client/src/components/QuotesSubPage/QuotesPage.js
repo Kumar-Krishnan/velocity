@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Quotes from '../Quotes';
 import axios from 'axios'
-
+import NavBar from '../NavBar'
 
 
 class QuotesPage extends Component {
@@ -33,7 +33,9 @@ class QuotesPage extends Component {
     
     render() {
         return (
+            
             <div>
+                <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <button onClick={this.clearAllQuotes}>Clear all Quotes.</button>
                 <Quotes quotes={this.state.user.quotes} />
             </div>

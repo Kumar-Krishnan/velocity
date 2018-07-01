@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Quotes from './Quotes';
 import Values from './Values';
 import RandomQuote from './RandomQuote';
+import NavBar from './NavBar';
 
 const HeaderBox = styled.div`
     text-align: center;
@@ -130,6 +131,7 @@ class HomePage extends Component {
     render() {
         return (
             <div>
+                <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <HeaderBox>
                     <h3>Hello {this.state.user.name}</h3>
                     <RandomQuote quote={this.state.randomQuote} newRandomQuote={this.newRandomQuote} addToQuoteBoard={this.addToQuoteBoard} addToValueBoard={this.addToValueBoard}/>

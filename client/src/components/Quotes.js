@@ -9,6 +9,8 @@ const StyledQuoteBox = styled.div`
     padding: 20px 10px
     margin-bottom: 40px;
     border:1px solid black;
+    max-height: 500px;
+    overflow-x:auto;
 `
 class Quotes extends Component {
     
