@@ -4,11 +4,25 @@ import styled from 'styled-components'
 
 const StyledValueBox = styled.div`
     margin: 0 4vw;
-    background-color: #c7ec9f;
+    background-color: #a789ee;
     border-radius: 7px;
-    padding: 20px 10px
+    padding: 20px 10px;
+    padding-top: 5px;
     margin-bottom: 40px;
-    border:solid black 1px;
+    border: ridge 5px #a789ee;
+    text-align: center;
+    margin-top: 2em;
+`
+const StyleValueBoardHeader = styled.h3`
+    text-align: center;
+    color: #1703ff;
+    font-size: 1.5em;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 3.5px ridge #7100ff; 
+    padding: .75em 0; 
+    margin-top: 0; 
+
 `
 class Values extends Component {
     render() {
@@ -17,11 +31,9 @@ class Values extends Component {
         }
         return (
             <div>
-                <h3>Current Trajectory
-                    <br/>
-                    Board
-                </h3>
+                
                 <StyledValueBox>
+                    <StyleValueBoardHeader>Trajectory Board</StyleValueBoardHeader>
                     
                     {
                         this.props.values.map((value, i)=>{

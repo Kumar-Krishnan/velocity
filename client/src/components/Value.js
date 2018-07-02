@@ -3,14 +3,16 @@ import styled from 'styled-components'
 
 const ValueBox = styled.div`
     border-radius: 10px;
-    background-color: #fffab1;
-    border: 2px solid green;
+    background-color: #ffffff;
+    border: 2px solid #1e0b64;
     margin-bottom: 15px;
+    padding: 0 20px;
     h6{
         margin:10px;
     }
     .author{
         margin-bottom: 5px;
+        margin-top: 15px;
     }
     button{
         margin-bottom: 5px;
@@ -34,7 +36,7 @@ class Value extends Component {
                     {this.props.value.text}
                 </div>
                 <div className="author">
-                    {this.props.value.author}
+                    -   {this.props.value.author}
                 </div>
                 <RemoveValueButton onClick={this.handleValueRemove}>Remove Value</RemoveValueButton>
             </ValueBox>

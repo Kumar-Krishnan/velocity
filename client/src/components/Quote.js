@@ -10,18 +10,22 @@ const QuoteBox= styled.div`
     background-color: #ffffff;
     border: 2px solid green;
     margin-bottom: 15px;
+    padding: 0 20px;
     h6{
         margin:10px;
     }
     .author{
         margin-bottom: 5px;
+        margin-top: 15px;
     }
     button{
         margin-bottom: 5px;
     }
 `
 
-
+const QuoteButtons = styled.button`
+    background-color:transparent;
+`
 class Quote extends Component {
 
     handleValueSubmit = (event) =>{
@@ -38,11 +42,11 @@ class Quote extends Component {
                 <QuoteTextBox>
                     {this.props.quote.text}
                 </QuoteTextBox>
-                <div>
-                    {this.props.quote.author}
+                <div className="author">
+                    -  {this.props.quote.author}
                 </div>
-                <button onClick={this.handleValueSubmit}>Add to Values</button>
-                <button onClick={this.handleQuoteDeleteSubmit}> Delete Quote</button>
+                <QuoteButtons onClick={this.handleValueSubmit}>Add to Values</QuoteButtons>
+                <QuoteButtons onClick={this.handleQuoteDeleteSubmit}> Delete Quote</QuoteButtons>
             </QuoteBox>
         );
     }

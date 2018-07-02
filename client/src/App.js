@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Welcome from './components/Welcome';
-import NavBar from './components/NavBar';
 import axios from 'axios'
 import {Link, Switch, BrowserRouter as Router, Route} from 'react-router-dom'
 import HomePage from './components/HomePage';
@@ -9,8 +8,12 @@ import UserAccount from './components/UserAccount'
 import QuotesPage from './components/QuotesSubPage/QuotesPage';
 import ValuesPage from './components/ValuesSubPage/ValuesPage';
 import Mediocre from './components/MediocreQuotes/Mediocre';
+import styled from 'styled-components'
 
-
+const PageWrapper = styled.div`
+  background-color: #7100ff17;
+  border-radius: 10px;
+`
 
 class App extends Component {
 
@@ -43,7 +46,7 @@ class App extends Component {
 
     return (
       <Router>
-        <div>
+        <PageWrapper>
           <Switch>
             <Route exact path="/" render={WelcomePageWrapper}/>
             <Route exact path="/user/:userId/" render={HomePageWrapper}/>
@@ -52,7 +55,7 @@ class App extends Component {
             <Route exact path="/user/:userId/values" component={ValuesPage}/>
             <Route exact path="/mediocre" component={Mediocre}/>
           </Switch>
-        </div>
+        </PageWrapper>
       </Router>
     );
   }
