@@ -3,12 +3,18 @@ import styled from 'styled-components'
 
 const CreateUserWrapper = styled.div`
     text-align: center;
+    h3{
+        margin-bottom: 10px;
+    }
+    
 `
 
 const CreateUserBox = styled.div`
     width: 50vw;
     display: inline-block;
-    form{
+    
+    .newUserForm{
+        margin-top: 10px;
         text-align:center;
         .userBox{
             text-align:center;
@@ -60,9 +66,9 @@ class CreateUser extends Component {
     render() {
         return (
             <CreateUserWrapper>
-                <h1>Sign Up For A New Account!</h1>
                 <CreateUserBox>
-                    <form onSubmit={this.handleSubmit}> 
+                    <h3>Sign Up For A New Account!</h3>
+                    <form class="newUserForm" onSubmit={this.handleSubmit}> 
                         <div className="userBox">
                             <label>New User Name</label>
                             <input

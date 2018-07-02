@@ -7,6 +7,7 @@ import NavBar from './NavBar'
 const StyledLoginDiv = styled.div`
     margin-top: 20px;
     form{
+        border: 1px ridge black;
         background-color: #0097d4;
         margin: 0 10px;
         margin-top: 30px;
@@ -28,7 +29,6 @@ const StyledLoginDiv = styled.div`
         }
     }
     div{
-        margin: 0 10px;
         h3{
             text-align:center;
         }
@@ -49,6 +49,8 @@ const StyledCreateAccountDiv = styled.div`
     height:500px;
     background-color: rgb(198, 198, 255);
     border-radius: 15px;
+    border: 1px ridge black;
+    
 
 `
 
@@ -128,9 +130,9 @@ class Welcome extends Component {
             <StyledLoginDiv>
                 <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <div>
-                    <h3>Welcome To Velocity</h3>
+                    <h3>Welcome To VELOCITY</h3>
                     <StyledInstructions>
-                        <h4>Please scroll down and read our getting started blurb to understand what velocity is and how to get the most out of it for yourself and for any organizations you might be a part of. </h4>
+                        <h4>Please scroll down and read our getting started guide to understand what VELOCITY is and how to get the most out of it for yourself and for any organizations you might be a part of. </h4>
                         <p>Velocity is designed to help individuals and organizations explore their values, to reinforce their values and to refine their values. 
                             <br/>
                             We aim to provide a space to keep coming back to as organizations and individuals change, to see what the direction of that change is or should be.
