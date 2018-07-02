@@ -15,7 +15,7 @@ const StyledValueBox = styled.div`
 `
 const StyleValueBoardHeader = styled.h3`
     text-align: center;
-    color: #1703ff;
+    color: #006eb4;
     font-size: 1.5em;
     background-color: #ffffff;
     border-radius: 5px;
@@ -33,7 +33,7 @@ class Values extends Component {
             <div>
                 
                 <StyledValueBox>
-                    <StyleValueBoardHeader>Trajectory Board</StyleValueBoardHeader>
+                    <StyleValueBoardHeader>VELOCITY BOARD</StyleValueBoardHeader>
                     
                     {
                         this.props.values.map((value, i)=>{

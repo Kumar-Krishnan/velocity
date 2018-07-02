@@ -22,7 +22,7 @@ const StyledQuoteBox = styled.div`
 `
 const StyleQuoteBoardHeader = styled.h3`
     text-align: center;
-    color: #1703ff;
+    color: #006eb4;
     font-size: 1.5em;
     background-color: #ffffff;
     border-radius: 5px;

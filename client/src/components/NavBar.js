@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const GridNavBar = styled.div`
     display: grid;
     grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
     justify-content: space-evenly;
     margin-top: 10px;
+    background-color: #a789ee;
+    border-radius: 8px;
     div{
-        border: 2px solid black;
+        text-decoration:underline;
     }
 `
 
@@ -48,9 +51,6 @@ class NavBar extends Component {
             alert("Please login or choose a valid user profile")
         }
     }
-    handleExit = (event) =>{
-        event.preventDefault()
-    }
     render() {
         return (
             <GridNavBar className="grid">
@@ -58,7 +58,7 @@ class NavBar extends Component {
                 <div onClick={this.handleValues}>Values</div>
                 <div onClick={this.handleQuotes}>Quotes</div>
                 <div onClick={this.handleSettings}>Settings</div>
-                <div onClick={this.handleExit}>Exit</div>
+                <div><Link to="/">Exit</Link></div>
             </GridNavBar>
         );
     }
