@@ -43,12 +43,10 @@ The three models. User ->  Values ->
 
 ## WireFrames Used
 
-![](https://i.imgur.com/DKHoi5cl.jpg)
-![](https://i.imgur.com/YwkFIDVl.jpg)
-![](https://i.imgur.com/jqdWzPXl.jpg)
-![](https://i.imgur.com/CRh8AuTl.jpg)
-![](https://i.imgur.com/oHm7oqKl.jpg)
-![](https://i.imgur.com/vPgt0bel.jpg)
+![](https://i.imgur.com/LsbIF80h.jpg)
+![](https://i.imgur.com/hkaG68Rh.jpg)
+![](https://i.imgur.com/JOz1Crnh.jpg)
+![](https://i.imgur.com/UkKt5Nxh.jpg)
 
 #ERD:
 
