@@ -93,7 +93,12 @@ class Welcome extends Component {
         const targetUser = this.state.users.find((user)=>{
             return user.name === this.state.userName
         })
-        this.props.history.push(`/user/${targetUser.id}`)
+        if (targetUser !== undefined){
+            this.props.history.push(`/user/${targetUser.id}`)
+        }
+        else{
+            alert("Please submit a valid user name")
+        }
     }
 
     handleChange = (event) =>{
