@@ -10,9 +10,23 @@ const CreateUserBox = styled.div`
     display: inline-block;
     form{
         text-align:center;
-        div{
+        .userBox{
+            text-align:center;
             label{
-                text-align:center;
+                display:inline;   
+            }
+            input{
+            margin-left: 0px;
+            }
+        }
+        .passBox{
+            text-align:center;
+            label{
+                display:inline;   
+            }
+            .passInput{
+            margin-left: 0px;
+            text-align:center;
             }
         }
     }
@@ -49,22 +63,22 @@ class CreateUser extends Component {
                 <h1>Sign Up For A New Account!</h1>
                 <CreateUserBox>
                     <form onSubmit={this.handleSubmit}> 
-                    <div>
-                    <label>New User Name</label>
-                    <input
-                       type="text"
-                       name="userName"
-                       value={this.state.userName}
-                       onChange={this.handleChange}
-                    />
+                        <div className="userBox">
+                            <label>New User Name</label>
+                            <input
+                            type="text"
+                            name="userName"
+                            value={this.state.userName}
+                            onChange={this.handleChange}
+                            />
 
-                    </div>
+                        </div>
 
-                    <div>
-                        <label>Create Password</label>
-                        <input value="PlaceHolder" readOnly className="passInput"/>
-                    </div>
-                    <button type="submit">Create USER!</button>
+                        <div className="passBox">
+                            <label>Create Password</label>
+                            <input value="PlaceHolder" readOnly className="passInput"/>
+                        </div>
+                        <button type="submit">Create USER!</button>
                     </form>
                 </CreateUserBox>
             </CreateUserWrapper>

@@ -5,12 +5,14 @@ import styled from 'styled-components'
 
 const StyledAccountDiv = styled.div`
     margin-top: 20px;
-    form{
-        background-color: #0097d4;
+    background-color: #0097d4;
         margin: 0 10px;
         margin-top: 30px;
         border-radius: 15px;
         padding-bottom: 1em;
+        text-align: center;
+    form{
+        margin-bottom: 20px;
         div{
             text-align:left;
             padding: 10px;
@@ -24,8 +26,20 @@ const StyledAccountDiv = styled.div`
                 color:white;
             }
         }
+        button{
+            margin-top: 20px;
+        }
     }
     
+`
+
+const UserButtons = styled.button`
+    padding: 10px 50px;
+    background-color: rgb(178, 141, 248);
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: .8em;
+    width: 150px;
 `
 
 
@@ -101,37 +115,40 @@ class UserAccount extends Component {
 
     render() {
         
+        if (this.state.user.quotes === undefined) {
+            return null
+        }
+
         return (
-            <StyledAccountDiv>
+            <div>
                 <NavBar userId={this.props.match.params.userId} {...this.props}/>
-                <form onSubmit={this.handleSubmitChange}> 
-                    <div>
-                    <label>User Name:</label>
-                    <input
-                       type="text"
-                       name="name"
-                       value={this.state.user.name}
-                       onChange={this.handleChange}
-                    />
+                <StyledAccountDiv>
+                    <form onSubmit={this.handleSubmitChange}> 
+                        <div>
+                        <label>User Name:</label>
+                        <input
+                        type="text"
+                        name="name"
+                        value={this.state.user.name}
+                        onChange={this.handleChange}
+                        />
 
-                    </div>
+                        </div>
 
-                    <div>
-                        <label>Password: </label>
-                        <input 
-                        value="PlaceHolder"
-                        name="password"
-                        value={this.state.user.password}
-                        onChange={this.handleChange}/>
-                    </div>
-                    <button type="submit">Save Changes</button>
-                    </form>
-                    <button onClick={this.handleDeleteSubmit}> Delete User</button>
-                    <div>
-                        {/* <h4>{this.state.user.quotes.length}</h4> */}
-                        <button onClick={this.clearAllQuotes}>Clear all Quotes.</button>
-                    </div>
-            </StyledAccountDiv>
+                        <div>
+                            <label>Password: </label>
+                            <input 
+                            className="passInput"
+                            value="PlaceHolder"
+                            name="password"
+                            value={this.state.user.password}
+                            onChange={this.handleChange}/>
+                        </div>
+                        <UserButtons type="submit">Save Changes</UserButtons>
+                        </form>
+                        <UserButtons onClick={this.handleDeleteSubmit}> Delete User</UserButtons>
+                </StyledAccountDiv>
+            </div>
         );
     }
 }

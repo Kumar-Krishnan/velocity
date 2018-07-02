@@ -48,6 +48,9 @@ class NavBar extends Component {
             alert("Please login or choose a valid user profile")
         }
     }
+    handleExit = (event) =>{
+        event.preventDefault()
+    }
     render() {
         return (
             <GridNavBar className="grid">
@@ -55,7 +58,7 @@ class NavBar extends Component {
                 <div onClick={this.handleValues}>Values</div>
                 <div onClick={this.handleQuotes}>Quotes</div>
                 <div onClick={this.handleSettings}>Settings</div>
-                <div >Exit</div>
+                <div onClick={this.handleExit}>Exit</div>
             </GridNavBar>
         );
     }

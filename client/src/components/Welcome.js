@@ -20,6 +20,7 @@ const StyledLoginDiv = styled.div`
             }
             .passInput{
                 margin-left: 20px;
+                text-align:center;
             }
             label{
                 color:white;

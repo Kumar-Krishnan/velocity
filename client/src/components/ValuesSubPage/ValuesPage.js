@@ -17,12 +17,23 @@ class ValuesPage extends Component {
             this.setState({user: res.data})
         })
     }
+
+    deleteFromValueBoard = (valueId) => {
+        const userId= this.state.user._id
+        axios.delete(`/database/users/${userId}/values/${valueId}`)
+        .then(()=>{
+            return axios.get(`/database/users/${userId}`)
+        })
+        .then((res)=>{
+            this.setState({user: res.data})
+        })
+    }
     
     render() {
         return (
             <div>
                 <NavBar userId={this.props.match.params.userId} {...this.props}/>
-                <Values values={this.state.user.tenValues}/>
+                <Values deleteFromValueBoard={this.deleteFromValueBoard} values={this.state.user.tenValues}/>
             </div>
         );
     }
