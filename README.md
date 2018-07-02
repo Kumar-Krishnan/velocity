@@ -24,6 +24,7 @@ Velocity is designed to be used as phone app and utilizes three data models to h
 Through this exercise, I really came to appreciate the component model and component based framework of React. There were specific fields that I had to repeat manually during this project that helped me clearly visualize by the end of this project how instead, I could have turned many of them into reusable components. I plan to take this insight with me going forward. 
 
 The three models. User ->  Values ->
+<br/>
                     User -> Quotes-> Values
                     
 ## Future Directions, things not got to:
