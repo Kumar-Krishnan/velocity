@@ -54,8 +54,6 @@ class UserAccount extends Component {
         axios.get(`/database/users/${this.props.match.params.userId}`)
         .then((res)=>{
             this.setState({user: res.data})
-            console.log(this.props.match.params.userId)
-            console.log(this.state.user.quotes)
         })
         
     }
@@ -66,13 +64,11 @@ class UserAccount extends Component {
         const alteredUser = [...this.state.user]
         alteredUser[inputField] = newValue
         this.setState({user: alteredUser})
-        console.log(this.state.user[inputField])
     }
     
     handleSubmitChange = (event) =>{
         event.preventDefault()
-        let existingNames = []
-        axios.get('/database/users/userNames')
+         axios.get('/database/users/userNames')
         .then((res)=>{
           const targetUser = res.data.find((user)=>{
             return user.name === this.state.user.name
@@ -82,10 +78,8 @@ class UserAccount extends Component {
                 name: this.state.user.name,
                 password: this.state.user.password
             }
-            console.log(userToBeSent)
             axios.put(`/database/users/${this.props.match.params.userId}`,userToBeSent)
             .then((res)=>{
-                console.log(res.data)
             })
         }
         else{
@@ -105,10 +99,8 @@ class UserAccount extends Component {
         const changeToBeSent = {
             quotes:[]
         }
-        console.log(changeToBeSent)
         axios.put(`/database/users/${this.props.match.params.userId}`,changeToBeSent)
         .then((res)=>{
-            console.log(res.data)
             this.setState({user:res.data})
         })
     }

@@ -29,6 +29,8 @@ The three models. User ->  Values ->
 ## Future Directions, things not got to:
 * In the future, I would like to create media queries to make the site more accessible as a laptop or talet user. 
 
+* Utilize more turnaries in setting the framework of components.
+
 * Create a past values array and display to store user's past values
 
 * Extract author names of quotes and recommend book titles to user based on those names.

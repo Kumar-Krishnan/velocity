@@ -20,7 +20,6 @@ class HomePage extends Component {
 
     componentDidMount(){
         const currentUserId = this.props.match.params.userId
-        console.log(currentUserId)
         axios.get(`/database/users/${currentUserId}`)
         .then((res)=>{
             this.setState({user: res.data})
@@ -28,7 +27,6 @@ class HomePage extends Component {
         axios.get('/database/allQuotes')
         .then((res)=>{
             this.setState({randomQuote:res.data})
-            console.log(this.state.randomQuote)
         }) 
     }
 
@@ -57,12 +55,11 @@ class HomePage extends Component {
             })
             .then((res2)=>{
                 randomQuoteState = res2.data
-                console.log(randomQuoteState,userState)
                 this.setState({user: userState, randomQuote: randomQuoteState})
             })
         }
         else{
-            console.log("Stop it!")
+            alert("That value already exists on your velocity board")
         }
         
     }
@@ -101,12 +98,11 @@ class HomePage extends Component {
             })
             .then((res2)=>{
                 randomQuoteState = res2.data
-                console.log(randomQuoteState,userState)
                 this.setState({user: userState, randomQuote: randomQuoteState})
             })
         }
         else{
-            console.log("Stop it!")
+            alert("That quote already exists on the your quote board")
         }
     }
 

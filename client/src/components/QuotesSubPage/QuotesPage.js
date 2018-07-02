@@ -12,7 +12,6 @@ class QuotesPage extends Component {
     }
     componentDidMount(){
         const currentUserId = this.props.match.params.userId
-        console.log(currentUserId)
         axios.get(`/database/users/${currentUserId}`)
         .then((res)=>{
             this.setState({user: res.data})
@@ -23,10 +22,8 @@ class QuotesPage extends Component {
         const changeToBeSent = {
             quotes:[]
         }
-        console.log(changeToBeSent)
         axios.put(`/database/users/${this.props.match.params.userId}`,changeToBeSent)
         .then((res)=>{
-            console.log(res.data)
             this.setState({user:res.data})
         })
     }

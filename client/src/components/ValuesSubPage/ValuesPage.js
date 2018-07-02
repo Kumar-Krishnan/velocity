@@ -11,7 +11,6 @@ class ValuesPage extends Component {
     }
     componentDidMount(){
         const currentUserId = this.props.match.params.userId
-        console.log(currentUserId)
         axios.get(`/database/users/${currentUserId}`)
         .then((res)=>{
             this.setState({user: res.data})

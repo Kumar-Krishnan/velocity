@@ -60,7 +60,6 @@ class CreateUser extends Component {
         const userInput = event.target.value
         const newUserName = userInput
         this.setState({newUserName: newUserName})
-        console.log(this.state.newUserName)
     }
 
     render() {
@@ -68,7 +67,7 @@ class CreateUser extends Component {
             <CreateUserWrapper>
                 <CreateUserBox>
                     <h3>Sign Up For A New Account!</h3>
-                    <form class="newUserForm" onSubmit={this.handleSubmit}> 
+                    <form className="newUserForm" onSubmit={this.handleSubmit}> 
                         <div className="userBox">
                             <label>New User Name</label>
                             <input

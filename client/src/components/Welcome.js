@@ -90,11 +90,9 @@ class Welcome extends Component {
 
     handleSubmitLogin = (event) =>{
         event.preventDefault()
-        console.log(this.state.users)
         const targetUser = this.state.users.find((user)=>{
             return user.name === this.state.userName
         })
-        console.log(targetUser)
         this.props.history.push(`/user/${targetUser.id}`)
     }
 
@@ -103,7 +101,6 @@ class Welcome extends Component {
     
         const newUserName = userInput
         this.setState({userName: newUserName})
-        console.log(this.state.userName)
     }
 
     submitNewUser = (newUser) =>{
@@ -115,7 +112,6 @@ class Welcome extends Component {
             axios.post(`/database/users/`, newUser)
             .then((res)=>{
                 const userId = res.data._id
-                console.log(userId)
                 this.props.history.push(`/user/${userId}`)
             })
         }
