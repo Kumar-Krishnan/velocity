@@ -106,10 +106,7 @@ class UserAccount extends Component {
     }
 
     render() {
-        
-        if (this.state.user.quotes === undefined) {
-            return null
-        }
+    
 
         return (
             <div>
@@ -131,7 +128,6 @@ class UserAccount extends Component {
                             <label>Password: </label>
                             <input 
                             className="passInput"
-                            value="PlaceHolder"
                             name="password"
                             value={this.state.user.password}
                             onChange={this.handleChange}/>

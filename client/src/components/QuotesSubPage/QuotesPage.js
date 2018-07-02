@@ -28,13 +28,24 @@ class QuotesPage extends Component {
         })
     }
     
+    deleteFromQuoteBoard = (quoteId) => {
+        const userId= this.state.user._id
+        axios.delete(`/database/users/${userId}/quotes/${quoteId}`)
+        .then(()=>{
+            return axios.get(`/database/users/${userId}`)
+        })
+        .then((res)=>{
+            this.setState({user: res.data})
+        })
+    }
+    
     render() {
         return (
             
             <div>
                 <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <button onClick={this.clearAllQuotes}>Clear all Quotes.</button>
-                <Quotes quotes={this.state.user.quotes} />
+                <Quotes deleteFromQuoteBoard={this.deleteFromQuoteBoard}quotes={this.state.user.quotes} />
             </div>
         );
     }

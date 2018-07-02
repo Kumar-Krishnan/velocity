@@ -38,12 +38,5 @@ router.delete('/:quoteId', (req,res) =>{
   })
 })
 
-// router.put('/:userId',(req,res)=>{
-//   return UserModel.findByIdAndUpdate(req.params.userId, req.body, {new: true})
-//   .then((user)=>{
-//       res.send(user)
-//   })
-// })
-
 
 module.exports = router;
