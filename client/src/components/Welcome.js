@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
 import CreateUser from './CreateUser';
+import NavBar from './NavBar'
 
 const StyledLoginDiv = styled.div`
     margin-top: 20px;
     form{
         background-color: #0097d4;
         margin: 0 10px;
+        margin-top: 30px;
         border-radius: 15px;
+        padding-bottom: 1em;
         div{
             text-align:left;
             padding: 10px;
@@ -44,6 +47,7 @@ const StyledLoginForm = styled.form`
     .loginButton{
         font-size: 15px;
     }
+    
 `
 class Welcome extends Component {
     state = {
@@ -103,6 +107,7 @@ class Welcome extends Component {
     render() {
         return (
             <StyledLoginDiv>
+                <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <StyledLoginForm onSubmit={this.handleSubmitLogin}> 
                 <div>
                    <label>User Name:</label>

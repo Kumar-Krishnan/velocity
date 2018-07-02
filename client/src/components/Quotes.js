@@ -41,6 +41,7 @@ class Quotes extends Component {
             <StyledQuoteBoard>
                 <StyleQuoteBoardHeader>Quotes Board</StyleQuoteBoardHeader>
                 <StyledQuoteBox>
+                    <h5>Scroll down to explore further</h5>
                     {
                         this.props.quotes.map((quote, i)=>{
                             return <Quote key={i} quote={quote} deleteFromQuoteBoard={this.props.deleteFromQuoteBoard} addToValueBoard={this.props.addToValueBoard}/>

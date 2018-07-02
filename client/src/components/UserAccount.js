@@ -1,6 +1,34 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import NavBar from './NavBar'
+import styled from 'styled-components'
+
+const StyledAccountDiv = styled.div`
+    margin-top: 20px;
+    form{
+        background-color: #0097d4;
+        margin: 0 10px;
+        margin-top: 30px;
+        border-radius: 15px;
+        padding-bottom: 1em;
+        div{
+            text-align:left;
+            padding: 10px;
+            input{
+                margin-left: 15px;
+            }
+            .passInput{
+                margin-left: 20px;
+            }
+            label{
+                color:white;
+            }
+        }
+    }
+    
+`
+
+
 class UserAccount extends Component {
 
     state = {
@@ -74,7 +102,7 @@ class UserAccount extends Component {
     render() {
         
         return (
-            <div>
+            <StyledAccountDiv>
                 <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <form onSubmit={this.handleSubmitChange}> 
                     <div>
@@ -103,7 +131,7 @@ class UserAccount extends Component {
                         {/* <h4>{this.state.user.quotes.length}</h4> */}
                         <button onClick={this.clearAllQuotes}>Clear all Quotes.</button>
                     </div>
-            </div>
+            </StyledAccountDiv>
         );
     }
 }
