@@ -129,7 +129,6 @@ class Welcome extends Component {
     render() {
         return (
             <StyledLoginDiv>
-                <NavBar userId={this.props.match.params.userId} {...this.props}/>
                 <div>
                     <h3>Welcome To VELOCITY</h3>
                     <StyledInstructions>

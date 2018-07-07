@@ -6,8 +6,8 @@ import HomePage from './components/HomePage';
 import UserAccount from './components/UserAccount'
 import QuotesPage from './components/QuotesSubPage/QuotesPage';
 import ValuesPage from './components/ValuesSubPage/ValuesPage';
-import Mediocre from './components/MediocreQuotes/Mediocre';
 import styled from 'styled-components'
+import APIQuotesHomePage from './components/MediocreQuotes/APIQuotesHomePage';
 
 const PageWrapper = styled.div`
   background-color: #7100ff17;
@@ -25,6 +25,9 @@ class App extends Component {
       <HomePage {...props}/>
     )
 
+    const APIQuotesWrapper = (props) =>(
+      <APIQuotesHomePage {...props}/>
+    )
     return (
       <Router>
         <PageWrapper>
@@ -34,7 +37,7 @@ class App extends Component {
             <Route exact path="/user/:userId/settings" component={UserAccount}/>
             <Route exact path="/user/:userId/quotes" component={QuotesPage}/>
             <Route exact path="/user/:userId/values" component={ValuesPage}/>
-            <Route exact path="/mediocre" component={Mediocre}/>
+            <Route exact path="/user/:userId/mediocre" render={APIQuotesWrapper}/>
           </Switch>
         </PageWrapper>
       </Router>

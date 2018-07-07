@@ -33,5 +33,5 @@ app.use('/database/users', usersRouter)
 app.use('/database/users/:userId/quotes', quotesRouter)
 app.use('/database/allQuotes', allQuotesRouter)
 app.use('/database/users/:userId/values', valuesRouter)
-app.use('/database/api', apiController)
+app.use('/database/apiQuotes', apiController)
 module.exports = app

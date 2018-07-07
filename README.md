@@ -23,6 +23,9 @@ Velocity is designed to be used as phone app and utilizes three data models to h
 
 Through this exercise, I really came to appreciate the component model and component based framework of React. There were specific fields that I had to repeat manually during this project that helped me clearly visualize by the end of this project how instead, I could have turned many of them into reusable components. I plan to take this insight with me going forward. 
 
+Outside of working with React, the most exciting parts of this project was utilizing an external API call for quotes, which required utilizing a header injection into axios to make the API call. The API sourced quotes were not of as a high quality as a static source I had found. So the app utilizes a static data file for the user experience, but the API called quotes can be seen in the easter egg feature, silly  API quotes.
+
+
 The three models. User ->  Values ->
 <br/>
                     User -> Quotes-> Values
